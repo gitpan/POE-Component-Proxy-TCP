@@ -14,6 +14,7 @@ and document
 
 ------------------------------ done
 # to do:
+#   - is_connected_to_server needs to be per client connection! (done)
 - re-write the pod t be accurate and have a very small but complete example
 (text version of proxy)
 - make a cpan type dist that has all the files, makes a dist that has all files,

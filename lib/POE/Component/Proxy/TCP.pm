@@ -1,9 +1,8 @@
-# $Id: TCP.pm,v 1.1.1.1 2004/07/23 00:51:31 avpurshottam Exp $
+# $Id: TCP.pm,v 1.2 2004/08/02 09:40:41 avpurshottam Exp $
 # TCP Proxy Component - Andrew v. Purshottam andy@andypurshottam.com 22 Jun 2004
 # Module structure adapted from PoCo::Server::TCP
 
 # to do:
-#   - is_connected_to_server needs to be per client connection! (done)
 #   - clean up exported logic below
 #   - rationalize and document session aliases
 #   - document the connection between per client server sessions and 
@@ -22,7 +21,7 @@ use vars qw(@ISA @EXPORT $VERSION);
 
 @EXPORT = qw();
 use vars qw($VERSION);
-$VERSION = (qw($Revision: 1.1.1.1 $ ))[1];
+$VERSION = (qw($Revision: 1.2 $ ))[1];
 
 use Carp qw(carp croak);
 use Socket qw(INADDR_ANY inet_ntoa);
@@ -387,13 +386,14 @@ session runs the callback and what heap variables are available in
 that session.
 
 =head2 Session Structure
-- Proxy Server Listener Session, created by PoCo::Server::TCP
+
+  - Proxy Server Listener Session, created by PoCo::Server::TCP
     - Proxy Server Connection Sessions, per remote client connection
       Created in PoCo::Server:
       - Proxy Client Connection Sessions, created by 
         PoCo::Client::TCP
 
-Constructor parameters:
+  Constructor parameters:
 
 =over 2
  
@@ -515,8 +515,8 @@ Internet address.
 
 =head1 SEE ALSO
 
-POE::Component::Server::TCP, POE::Component::Client::TCP, 
-POE::Wheel::SocketFactory, POE::Wheel::ReadWrite, POE::Filter
+  POE::Component::Server::TCP, POE::Component::Client::TCP, 
+  POE::Wheel::SocketFactory, POE::Wheel::ReadWrite, POE::Filter
 
 =head1 CAVEATS
 
@@ -530,7 +530,8 @@ added states to to nested sessions.[There almost is one implied by other
 PoCos I think?.]
 
 =head1 BUGS
-Probably lots. 
+
+
 
 =head1 AUTHORS & COPYRIGHTS
 
@@ -539,7 +540,7 @@ All rights are reserved.  POE::Component::Proxy::TCP is free
 software, and it may be redistributed and/or modified under the same
 terms as Perl itself.
 
-POE::Component::Proxy::TCP is based on:
+ POE::Component::Proxy::TCP is based on:
   - POE::Component::Server::TCP - for module structure and parameter 
     handling.
   - POE::Component::Server::HTTP - for instance variable conventions
